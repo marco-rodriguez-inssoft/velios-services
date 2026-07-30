@@ -77,7 +77,6 @@ builder.Services.AddScoped<IReporteMaterialidadPreeliminarService, ReporteMateri
 builder.Services.AddScoped<IReporteMaterialidadRepository, ReporteMaterialidadRepository>();
 builder.Services.AddScoped<IReporteMaterialidadService, ReporteMaterialidadService>();
 builder.Services.AddMemoryCache();
-builder.Services.AddSingleton<ProgresoStore>();
 
 builder.Services.AddHttpClient();
 

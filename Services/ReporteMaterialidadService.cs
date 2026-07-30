@@ -63,14 +63,13 @@ public class ReporteMaterialidadService : IReporteMaterialidadService
     /// Si se omiten (como antes), el método funciona exactamente igual que
     /// siempre, sin ningún efecto secundario adicional.
     /// </summary>
-    public async Task<byte[]> GenerarPdfPorTareaAsync(int tareaId, Guid? jobId = null, ProgresoStore? progresoStore = null)
+    public async Task<byte[]> GenerarPdfPorTareaAsync(int tareaId)
     {
         // Helper local para no repetir el "if jobId.HasValue && progresoStore is not null"
         // en cada punto donde queremos reportar avance.
         void ReportarProgreso(Action<ProgresoReporte> update)
         {
-            if (jobId.HasValue && progresoStore is not null)
-                progresoStore.Actualizar(jobId.Value, update);
+
         }
 
         try

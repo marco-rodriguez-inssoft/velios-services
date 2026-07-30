@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Proyectos Inssoft\\velios-services\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\controllers\\reportepreeliminar\\reportematerialidadpreeliminarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:controllers\\reportepreeliminar\\reportematerialidadpreeliminarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\controllers\\reportematerialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:controllers\\reportematerialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\services\\reportematerialidadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:services\\reportematerialidadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\services\\ireportematerialidadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +15,16 @@
       "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:services\\reportepreeliminarservice\\ireportematerialidadpreeliminarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\services\\reportematerialidadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:services\\reportematerialidadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\services\\reportematerialidadpreeliminar\\reportematerialidadpreeliminarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:services\\reportematerialidadpreeliminar\\reportematerialidadpreeliminarservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\controllers\\reportematerialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:controllers\\reportematerialidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|c:\\proyectos inssoft\\velios-services\\controllers\\reportepreeliminar\\reportematerialidadpreeliminarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E09E1487-B5CC-B41E-44A3-43E90D9847EE}|velios.Api.csproj|solutionrelative:controllers\\reportepreeliminar\\reportematerialidadpreeliminarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,8 +34,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReporteMaterialidadService.cs",
+              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\ReporteMaterialidadService.cs",
+              "RelativeDocumentMoniker": "Services\\ReporteMaterialidadService.cs",
+              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\ReporteMaterialidadService.cs",
+              "RelativeToolTip": "Services\\ReporteMaterialidadService.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAqwEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T08:17:10.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IReporteMaterialidadPreeliminarService.cs",
+              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
+              "RelativeDocumentMoniker": "Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
+              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
+              "RelativeToolTip": "Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T08:16:26.462Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -49,98 +71,59 @@
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ReporteMaterialidadPreeliminarController.cs",
-              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
-              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
-              "RelativeToolTip": "Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:36:20.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReporteMaterialidadController.cs",
-              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReporteMaterialidadController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReporteMaterialidadController.cs",
-              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReporteMaterialidadController.cs",
-              "RelativeToolTip": "Controllers\\ReporteMaterialidadController.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAYwFUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:34:01.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IReporteMaterialidadService.cs",
-              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\IReporteMaterialidadService.cs",
-              "RelativeDocumentMoniker": "Services\\IReporteMaterialidadService.cs",
-              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\IReporteMaterialidadService.cs",
-              "RelativeToolTip": "Services\\IReporteMaterialidadService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:32:10.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAqwBUBAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:28:28.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ReporteMaterialidadService.cs",
-              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\ReporteMaterialidadService.cs",
-              "RelativeDocumentMoniker": "Services\\ReporteMaterialidadService.cs",
-              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\ReporteMaterialidadService.cs",
-              "RelativeToolTip": "Services\\ReporteMaterialidadService.cs",
-              "ViewState": "AgIAADgFAAAAAAAAAAAswFsFAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:28:13.114Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IReporteMaterialidadPreeliminarService.cs",
-              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
-              "RelativeDocumentMoniker": "Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
-              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
-              "RelativeToolTip": "Services\\Reportepreeliminarservice\\IReporteMaterialidadPreeliminarService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:28:00.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Reportematerialidadpreeliminarservice.cs",
               "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\ReporteMaterialidadPreeliminar\\Reportematerialidadpreeliminarservice.cs",
               "RelativeDocumentMoniker": "Services\\ReporteMaterialidadPreeliminar\\Reportematerialidadpreeliminarservice.cs",
               "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\ReporteMaterialidadPreeliminar\\Reportematerialidadpreeliminarservice.cs",
               "RelativeToolTip": "Services\\ReporteMaterialidadPreeliminar\\Reportematerialidadpreeliminarservice.cs",
-              "ViewState": "AgIAANoFAAAAAAAAAAAswP0FAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBIAAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-30T06:27:44.401Z",
+              "WhenOpened": "2026-07-30T08:15:32.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IReporteMaterialidadService.cs",
+              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Services\\IReporteMaterialidadService.cs",
+              "RelativeDocumentMoniker": "Services\\IReporteMaterialidadService.cs",
+              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Services\\IReporteMaterialidadService.cs",
+              "RelativeToolTip": "Services\\IReporteMaterialidadService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T08:15:02.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReporteMaterialidadController.cs",
+              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReporteMaterialidadController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReporteMaterialidadController.cs",
+              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReporteMaterialidadController.cs",
+              "RelativeToolTip": "Controllers\\ReporteMaterialidadController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T08:07:03.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ReporteMaterialidadPreeliminarController.cs",
+              "DocumentMoniker": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
+              "ToolTip": "C:\\Proyectos Inssoft\\velios-services\\Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
+              "RelativeToolTip": "Controllers\\ReportePreeliminar\\ReporteMaterialidadPreeliminarController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-30T08:06:44.445Z",
               "EditorCaption": ""
             }
           ]
