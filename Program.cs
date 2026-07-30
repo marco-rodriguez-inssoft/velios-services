@@ -22,7 +22,7 @@ using Serilog.Extensions.Logging;
 
 
 /// <summary>
-/// Punto de entrada de Velios API (Minimal Hosting .NET 6+).
+/// Punto de entrada de Velios API (Minimal Hosting .NET 6+)....
 /// 
 /// REGLA CLAVE:
 /// - Todo builder.Services.* debe ir ANTES de builder.Build()

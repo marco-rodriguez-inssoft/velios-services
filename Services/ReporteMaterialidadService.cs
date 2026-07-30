@@ -66,7 +66,7 @@ public class ReporteMaterialidadService : IReporteMaterialidadService
     public async Task<byte[]> GenerarPdfPorTareaAsync(int tareaId)
     {
         // Helper local para no repetir el "if jobId.HasValue && progresoStore is not null"
-        // en cada punto donde queremos reportar avance.
+        // en cada punto donde queremos reportar avance....
         void ReportarProgreso(Action<ProgresoReporte> update)
         {
 
