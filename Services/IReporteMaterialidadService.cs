@@ -1,4 +1,6 @@
-﻿namespace velios.Api.Services;
+﻿
+
+namespace velios.Api.Services;
 
 public interface IReporteMaterialidadService
 {
