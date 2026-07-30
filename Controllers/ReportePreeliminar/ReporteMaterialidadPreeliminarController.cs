@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using velios.Api.Services;
-
+//reflejo cambiso
 namespace velios.Api.Controllers;
 
 [ApiController]
@@ -25,6 +25,7 @@ public class ReporteMaterialidadPreeliminarController : ControllerBase
         stopwatch.Stop();
 
         Response.Headers["X-Tiempo-Generacion"] = $"{stopwatch.ElapsedMilliseconds} ms";
+        Response.Headers["Content-Length"] = pdfBytes.Length.ToString();
 
         return File(
             pdfBytes,

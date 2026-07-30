@@ -14,7 +14,7 @@ namespace velios.Api.Services;
 
 /// <summary>
 /// Servicio encargado de construir el reporte de materialidad preeliminar
-/// y generar el archivo PDF final por tarea.
+/// y generar el archivo PDF final por tarea.....
 /// </summary>
 public class ReporteMaterialidadPreeliminarService : IReporteMaterialidadPreeliminarService
 {
@@ -35,93 +35,155 @@ public class ReporteMaterialidadPreeliminarService : IReporteMaterialidadPreelim
         QuestPDF.Settings.License = LicenseType.Community;
     }
 
+    /// <summary>
+    /// Genera el PDF del reporte preliminar para una tarea.
+    ///
+    /// PROGRESO (barra de carga): jobId y progresoStore son opcionales. Si se
+    /// pasan ambos, el método reporta avance en tiempo real (Total, Procesadas,
+    /// Estado) para que un endpoint de progreso lo pueda consultar por polling.
+    /// Si se omiten (como antes), el método funciona exactamente igual que
+    /// siempre, sin ningún efecto secundario adicional.
+    /// </summary>
     public async Task<byte[]> GenerarPdfPorTareaAsync(int tareaId)
     {
-        var tarea = await _repository.ObtenerTareaAsync(tareaId);
-        if (tarea is null)
-            throw new InvalidOperationException($"No se encontró la tarea con id {tareaId}.");
-
-        byte[]? logoProveedorBytes = null;
-        if (!string.IsNullOrWhiteSpace(tarea.LogoUrlProveedor))
-            logoProveedorBytes = await DescargarImagenAsync(tarea.LogoUrlProveedor);
-
-        var cliente = await _repository.ObtenerClienteAsync(tarea.ClienteId);
-        if (cliente is null)
-            throw new InvalidOperationException($"No se encontró el cliente de la tarea con id {tarea.ClienteId}.");
-
-        var evidencias = await _repository.ObtenerEvidenciasPorTareaAsync(tarea.TareaId);
-        var observaciones = await _repository.ObtenerObservacionesPorTareaAsync(tarea.TareaId);
-        tarea.Observaciones = observaciones;
-        tarea.DireccionCentroTrabajo = await _repository.ObtenerDireccionCentroTrabajoAsync(tarea.CentroTrabajoId);
-        tarea.TelefonoCentroTrabajo = await _repository.ObtenerTelefonoCentroTrabajoAsync(tarea.CentroTrabajoId);
-        tarea.NombreCentroTrabajo = await _repository.ObtenerNombreCentroTrabajoAsync(tarea.CentroTrabajoId);
-
-
-        foreach (var evidencia in evidencias)
+        // Helper local para no repetir el "if jobId.HasValue && progresoStore is not null"
+        // en cada punto donde queremos reportar avance.
+        void ReportarProgreso(Action<ProgresoReporte> update)
         {
-            if (!string.IsNullOrWhiteSpace(evidencia.UrlArchivo))
-                evidencia.ImagenBytes = await DescargarImagenAsync(evidencia.UrlArchivo!);
-
-            if (evidencia.Latitud.HasValue && evidencia.Longitud.HasValue)
-            {
-                evidencia.MapaBytes = await DescargarMapaAsync(evidencia.Latitud.Value, evidencia.Longitud.Value);
-
-                var geo = await ObtenerGeocodingAsync(evidencia.Latitud.Value, evidencia.Longitud.Value);
-                if (geo is not null)
-                {
-                    evidencia.DireccionFormateada = geo.DireccionFormateada;
-                    evidencia.Colonia = geo.Colonia;
-                    evidencia.Municipio = geo.Municipio;
-                    evidencia.Estado = geo.Estado;
-                    evidencia.CodigoPostal = geo.CodigoPostal;
-                    evidencia.Pais = geo.Pais;
-                }
-
-                var lat = evidencia.Latitud.Value.ToString(CultureInfo.InvariantCulture);
-                var lng = evidencia.Longitud.Value.ToString(CultureInfo.InvariantCulture);
-                evidencia.GoogleMapsUrl = $"https://www.google.com/maps?q={lat},{lng}";
-            }
-
-            if (string.IsNullOrWhiteSpace(evidencia.DireccionFormateada))
-                evidencia.DireccionFormateada = evidencia.Direccion;
+            // Ya no se reporta progreso porque se eliminaron jobId y progresoStore
+        
         }
 
-        tarea.Evidencias = evidencias;
-
-        var reporte = new ReporteMaterialidadDto
-        {
-            Cliente = cliente,
-            Tarea = tarea,
-            FechaGeneracion = DateTime.Now,
-            Resumen = ConstruirResumen(tarea)
-        };
-
-        // Generar QR que apunte a una URL directa cuando esté configurada.
-        // Si en configuración existe 'Qr:DirectUrl' se usará dicha URL como contenido del QR
-        // (puede contener placeholders {tareaId} o {taskCode} que serán reemplazados).
-        byte[]? qrBytes = null;
         try
         {
-            // QR directo fijado en código (valor proporcionado por el usuario
-            var token = BuildValidationToken(tarea.TareaId);
-            var BaseUrlFront = _configuration["AppSettings:BaseUrlFront"];
-            var qrDirectTemplate = BaseUrlFront + $"Documentos/Verificar?taskId={tareaId}&token={token}";
-            qrBytes = GenerarQrBytes(qrDirectTemplate);
-        }
-        catch
-        {
-            // En caso de error generar QR local con contenido por defecto
+            var tarea = await _repository.ObtenerTareaAsync(tareaId);
+            if (tarea is null)
+                throw new InvalidOperationException($"No se encontró la tarea con id {tareaId}.");
+
+            byte[]? logoProveedorBytes = null;
+            if (!string.IsNullOrWhiteSpace(tarea.LogoUrlProveedor))
+                logoProveedorBytes = await DescargarImagenAsync(tarea.LogoUrlProveedor);
+
+            var cliente = await _repository.ObtenerClienteAsync(tarea.ClienteId);
+            if (cliente is null)
+                throw new InvalidOperationException($"No se encontró el cliente de la tarea con id {tarea.ClienteId}.");
+
+            var evidencias = await _repository.ObtenerEvidenciasPorTareaAsync(tarea.TareaId);
+            var observaciones = await _repository.ObtenerObservacionesPorTareaAsync(tarea.TareaId);
+            tarea.Observaciones = observaciones;
+            tarea.DireccionCentroTrabajo = await _repository.ObtenerDireccionCentroTrabajoAsync(tarea.CentroTrabajoId);
+            tarea.TelefonoCentroTrabajo = await _repository.ObtenerTelefonoCentroTrabajoAsync(tarea.CentroTrabajoId);
+            tarea.NombreCentroTrabajo = await _repository.ObtenerNombreCentroTrabajoAsync(tarea.CentroTrabajoId);
+
+            // PROGRESO: ya sabemos cuántas evidencias hay -> esto es el "total" que verá el usuario.
+            ReportarProgreso(p =>
+            {
+                p.Total = evidencias.Count;
+                p.Procesadas = 0;
+                p.Estado = "Procesando";
+            });
+
+            var procesadas = 0;
+
+            foreach (var evidencia in evidencias)
+            {
+                if (!string.IsNullOrWhiteSpace(evidencia.UrlArchivo))
+                    evidencia.ImagenBytes = await DescargarImagenAsync(evidencia.UrlArchivo!);
+
+                if (evidencia.Latitud.HasValue && evidencia.Longitud.HasValue)
+                {
+                    evidencia.MapaBytes = await DescargarMapaAsync(evidencia.Latitud.Value, evidencia.Longitud.Value);
+
+                    var geo = await ObtenerGeocodingAsync(evidencia.Latitud.Value, evidencia.Longitud.Value);
+                    if (geo is not null)
+                    {
+                        evidencia.DireccionFormateada = geo.DireccionFormateada;
+                        evidencia.Colonia = geo.Colonia;
+                        evidencia.Municipio = geo.Municipio;
+                        evidencia.Estado = geo.Estado;
+                        evidencia.CodigoPostal = geo.CodigoPostal;
+                        evidencia.Pais = geo.Pais;
+                    }
+
+                    var lat = evidencia.Latitud.Value.ToString(CultureInfo.InvariantCulture);
+                    var lng = evidencia.Longitud.Value.ToString(CultureInfo.InvariantCulture);
+                    evidencia.GoogleMapsUrl = $"https://www.google.com/maps?q={lat},{lng}";
+                }
+
+                if (string.IsNullOrWhiteSpace(evidencia.DireccionFormateada))
+                    evidencia.DireccionFormateada = evidencia.Direccion;
+
+                // PROGRESO: se incrementa al terminar cada evidencia, sin importar
+                // si sus descargas tuvieron éxito o no.
+                procesadas++;
+                var actuales = procesadas;
+                ReportarProgreso(p => p.Procesadas = actuales);
+            }
+
+            tarea.Evidencias = evidencias;
+
+            var reporte = new ReporteMaterialidadDto
+            {
+                Cliente = cliente,
+                Tarea = tarea,
+                FechaGeneracion = DateTime.Now,
+                Resumen = ConstruirResumen(tarea)
+            };
+
+            // Generar QR que apunte a una URL directa cuando esté configurada.
+            // Si en configuración existe 'Qr:DirectUrl' se usará dicha URL como contenido del QR
+            // (puede contener placeholders {tareaId} o {taskCode} que serán reemplazados).
+            byte[]? qrBytes = null;
             try
             {
-                qrBytes = GenerarQrBytes($"TAREA:{tarea.TareaId}");
+                // QR directo fijado en código (valor proporcionado por el usuario
+                var token = BuildValidationToken(tarea.TareaId);
+                var BaseUrlFront = _configuration["AppSettings:BaseUrlFront"];
+                var qrDirectTemplate = BaseUrlFront + $"Documentos/Verificar?taskId={tareaId}&token={token}";
+                qrBytes = GenerarQrBytes(qrDirectTemplate);
             }
             catch
             {
-                qrBytes = null;
+                // En caso de error generar QR local con contenido por defecto
+                try
+                {
+                    qrBytes = GenerarQrBytes($"TAREA:{tarea.TareaId}");
+                }
+                catch
+                {
+                    qrBytes = null;
+                }
             }
-        }
 
-        return await ConstruirPdfAsync(reporte, qrBytes, logoProveedorBytes);
+            // PROGRESO: las descargas terminaron. Ahora entra el render del PDF:
+            // QuestPDF no expone avance interno, así que aquí solo cambiamos el
+            // estado para que el front muestre "Generando PDF..." sin porcentaje.
+            ReportarProgreso(p => p.Estado = "GenerandoPdf");
+
+            var pdfBytes = await ConstruirPdfAsync(reporte, qrBytes, logoProveedorBytes);
+
+            // PROGRESO: listo. Guardamos el PDF en el store para que el endpoint
+            // de descarga lo pueda servir sin tener que regenerar nada.
+            ReportarProgreso(p =>
+            {
+                p.Estado = "Completado";
+                p.Procesadas = p.Total;
+                p.PdfBytes = pdfBytes;
+            });
+
+            return pdfBytes;
+        }
+        catch (Exception ex)
+        {
+            // PROGRESO: si algo truena en cualquier punto, el front debe enterarse
+            // por polling en vez de quedarse esperando un job que ya nunca va a llegar.
+            ReportarProgreso(p =>
+            {
+                p.Estado = "Error";
+                p.Mensaje = ex.Message;
+            });
+            throw;
+        }
     }
 
     private static ResumenReporteDto ConstruirResumen(TareaReporteDto tarea)

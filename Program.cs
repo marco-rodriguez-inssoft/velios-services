@@ -22,7 +22,7 @@ using Serilog.Extensions.Logging;
 
 
 /// <summary>
-/// Punto de entrada de Velios API (Minimal Hosting .NET 6+).
+/// Punto de entrada de Velios API (Minimal Hosting .NET 6+)....
 /// 
 /// REGLA CLAVE:
 /// - Todo builder.Services.* debe ir ANTES de builder.Build()
@@ -77,7 +77,6 @@ builder.Services.AddScoped<IReporteMaterialidadPreeliminarService, ReporteMateri
 builder.Services.AddScoped<IReporteMaterialidadRepository, ReporteMaterialidadRepository>();
 builder.Services.AddScoped<IReporteMaterialidadService, ReporteMaterialidadService>();
 builder.Services.AddMemoryCache();
-builder.Services.AddSingleton<ProgresoStore>();
 
 builder.Services.AddHttpClient();
 
@@ -156,7 +155,9 @@ builder.Services.AddCors(opt =>
     opt.AddPolicy("LocalDevCors", p =>
         p.AllowAnyHeader()
          .AllowAnyMethod()
-         .AllowAnyOrigin());
+         .AllowAnyOrigin()
+         // 💡 PERMITE QUE JAVASCRIPT LEA EL TAMAÑO DEL ARCHIVO Y LAS CABECERAS PERSONALIZADAS
+         .WithExposedHeaders("Content-Length", "Content-Disposition", "X-Tiempo-Generacion"));
 });
 
 #endregion

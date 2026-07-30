@@ -1,11 +1,10 @@
-﻿namespace velios.Api.Services;
+﻿
 
+namespace velios.Api.Services;
 /// <summary>
-/// Contrato del servicio que arma y genera
-/// el PDF de materialidad por tarea.
+/// Interfaz para el servicio de generación de reportes de materialidad.
 /// </summary>
 public interface IReporteMaterialidadService
 {
-    Task<byte[]> GenerarPdfPorTareaAsync(int tareaId, Guid? jobId = null, ProgresoStore? progresoStore = null);
-
+    Task<byte[]> GenerarPdfPorTareaAsync(int tareaId);
 }

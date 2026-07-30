@@ -1,7 +1,7 @@
 ﻿namespace velios.Api.Models.ReporteMaterialidad;
 
 /// <summary>
-/// Representa el estado de avance de una generación de reporte de materialidad
+/// Representa el estado de avance de una generación de reporte de materialidad nuevo
 /// que corre en segundo plano. Se actualiza desde ReporteMaterialidadService
 /// y se consulta desde el endpoint de progreso.
 /// </summary>
